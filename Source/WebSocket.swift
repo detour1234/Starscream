@@ -1003,7 +1003,7 @@ open class WebSocket : NSObject, StreamDelegate {
      */
     private func dequeueWrite(_ data: Data, code: OpCode, priority: Operation.QueuePriority = .normal, writeCompletion: (() -> ())? = nil) {
         let operation = BlockOperation()
-        operation.QueuePriority = priority
+        operation.queuePriority = priority
         operation.addExecutionBlock { [weak self, weak operation] in
             //stream isn't ready, let's wait
             guard let s = self else { return }
